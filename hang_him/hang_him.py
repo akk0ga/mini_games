@@ -25,6 +25,9 @@ while life > 0:
     for index in range(0, len(word)):
         if userLetter == word[index]:
             userWord[index] = userLetter
+        elif index == len(word) - 1 and userLetter != word[index]:
+            life -= 1
+            print(f'letter incorrect you have now {life} life')
 
     # create the word for display properly
     for index in range(0, len(word)):
@@ -38,7 +41,6 @@ while life > 0:
     # check if the world is complete
     if userWord == word:
         life = 0
-    life -= 1
 
 if userWord != word:
     print('=====================\nyou lose !\n=====================')
