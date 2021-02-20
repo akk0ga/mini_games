@@ -1,5 +1,5 @@
 # player life
-life = 1
+life = 10
 # create the word to guess
 word = list('test')
 userWord = list(range(0, len(word)))
