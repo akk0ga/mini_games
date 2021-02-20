@@ -1,17 +1,17 @@
 # player life
 life = 1
-# create the array
+# create the word to guess
 word = list('test')
-letterCorrect = list(range(0, len(word)))
+userWord = list(range(0, len(word)))
 # create final word
 result = ""
 
 # create the word for display
 for index in range(0, len(word)):
-    if isinstance(letterCorrect[index], int):
+    if isinstance(userWord[index], int):
         result += "_ "
     else:
-        result += f'{letterCorrect[index]}'
+        result += f'{userWord[index]}'
 
 print(f'word to guess: {result}')
 
@@ -24,23 +24,23 @@ while life > 0:
     # check if letter exist in the word
     for index in range(0, len(word)):
         if userLetter == word[index]:
-            letterCorrect[index] = userLetter
+            userWord[index] = userLetter
 
     # create the word for display properly
     for index in range(0, len(word)):
-        if isinstance(letterCorrect[index], int):
+        if isinstance(userWord[index], int):
             result += "_ "
         else:
-            result += f'{letterCorrect[index]} '
+            result += f'{userWord[index]} '
 
     print(f'word to guess: {result}')
 
     # check if the world is complete
-    if letterCorrect == word:
+    if userWord == word:
         life = 0
     life -= 1
 
-if letterCorrect != word:
+if userWord != word:
     print('=====================\nyou lose !\n=====================')
 else:
     print('=====================\nyou win !\n=====================')
