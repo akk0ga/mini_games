@@ -6,18 +6,22 @@ userWord = list(range(0, len(word)))
 # create final word
 result = ""
 
-# create the word for display
-for index in range(0, len(word)):
-    if isinstance(userWord[index], int):
-        result += "_ "
-    else:
-        result += f'{userWord[index]}'
 
-print(f'word to guess: {result}')
+def word_display():
+    result = ""
+    for index in range(0, len(word)):
+        if isinstance(userWord[index], int):
+            result += "_ "
+        else:
+            result += f'{userWord[index]} '
+    return result
+
+
+# display word
+print(f'word to guess: {word_display()}')
 
 # player is playing while he have life
 while life > 0:
-    result = ""
     # user enter letter
     userLetter = input('enter letter: ')
 
@@ -30,13 +34,7 @@ while life > 0:
             print(f'letter incorrect you have now {life} life')
 
     # create the word for display properly
-    for index in range(0, len(word)):
-        if isinstance(userWord[index], int):
-            result += "_ "
-        else:
-            result += f'{userWord[index]} '
-
-    print(f'word to guess: {result}')
+    print(f'word to guess: {word_display()}')
 
     # check if the world is complete
     if userWord == word:
