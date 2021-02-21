@@ -1,25 +1,25 @@
 # player life
 life = 10
 # create the word to guess
-word = list('tsea')
+word = list('test')
 userWord = list(range(0, len(word)))
+active = True
 
 
 def word_display():
     result = ""
-    for index in range(0, len(word)):
-        if isinstance(userWord[index], int):
+    for letter in range(0, len(word)):
+        if isinstance(userWord[letter], int):
             result += "_ "
         else:
-            result += f'{userWord[index]} '
+            result += f'{userWord[letter]} '
     return result
 
 
 # display word
 print(f'word to guess: {word_display()}')
-
 # player is playing while he have life
-while life > 0:
+while life > 0 and active:
     # user enter letter
     userLetter = input('enter letter: ')
 
@@ -27,18 +27,18 @@ while life > 0:
     for index in range(0, len(word)):
         if userLetter == word[index]:
             userWord[index] = userLetter
-        elif index == len(word) - 1 and userLetter != word[index] and userLetter not in word:
+        elif index == len(word) - 1 and userLetter not in word:
             life -= 1
             print(f'letter incorrect you have now {life} life')
 
-    # create the word for display properly
+    # create the word to display it properly
     print(f'word to guess: {word_display()}')
 
     # check if the world is complete
     if userWord == word:
-        life = 0
+        active = False
 
 if userWord != word:
     print('=====================\nyou lose !\n=====================')
 else:
-    print('=====================\nyou win !\n=====================')
+    print(f'=====================\nyou win with {life} life !\n=====================')
