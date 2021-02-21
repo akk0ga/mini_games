@@ -1,10 +1,8 @@
 # player life
 life = 10
 # create the word to guess
-word = list('test')
+word = list('tsea')
 userWord = list(range(0, len(word)))
-# create final word
-result = ""
 
 
 def word_display():
@@ -29,7 +27,7 @@ while life > 0:
     for index in range(0, len(word)):
         if userLetter == word[index]:
             userWord[index] = userLetter
-        elif index == len(word) - 1 and userLetter != word[index]:
+        elif index == len(word) - 1 and userLetter != word[index] and userLetter not in word:
             life -= 1
             print(f'letter incorrect you have now {life} life')
 
