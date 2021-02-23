@@ -1,10 +1,5 @@
 from random_words import RandomWords
 
-def generation_word():
-    random_words = RandomWords()
-    word = random_words.random_word()
-    return word
-
 
 def word_display():
     result = ""
@@ -16,13 +11,18 @@ def word_display():
     return result
 
 
-# player life
+# player life and set game active
 life = 10
-# create the word to guess
-complete_word = generation_word()
+active = True
+
+# generate the word
+random_words = RandomWords()
+generation = random_words.random_word()
+complete_word = generation
+
+#cut the word
 word = list(complete_word)
 userWord = list(range(0, len(complete_word)))
-active = True
 
 # display total letter
 print(f'word to guess: {word_display()}')
