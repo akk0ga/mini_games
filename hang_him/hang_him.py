@@ -17,10 +17,9 @@ active = True
 
 # generate the word
 random_words = RandomWords()
-generation = random_words.random_word()
-complete_word = generation
+complete_word = random_words.random_word()
 
-#cut the word
+# cut the word
 word = list(complete_word)
 userWord = list(range(0, len(complete_word)))
 
