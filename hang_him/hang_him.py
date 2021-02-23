@@ -25,7 +25,7 @@ word = list(complete_word)
 userWord = list(range(0, len(complete_word)))
 
 # display total letter
-print(f'word to guess: {word_display()}')
+print(f'Word is english only\nword to guess: {word_display()}')
 
 # player is playing while he have life
 while life > 0 and active:
