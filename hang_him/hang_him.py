@@ -1,9 +1,9 @@
-# player life
-life = 10
-# create the word to guess
-word = list('test')
-userWord = list(range(0, len(word)))
-active = True
+from random_words import RandomWords
+
+def generation_word():
+    random_words = RandomWords()
+    word = random_words.random_word()
+    return word
 
 
 def word_display():
@@ -16,8 +16,17 @@ def word_display():
     return result
 
 
-# display word
+# player life
+life = 10
+# create the word to guess
+complete_word = generation_word()
+word = list(complete_word)
+userWord = list(range(0, len(complete_word)))
+active = True
+
+# display total letter
 print(f'word to guess: {word_display()}')
+
 # player is playing while he have life
 while life > 0 and active:
     # user enter letter
@@ -39,6 +48,6 @@ while life > 0 and active:
         active = False
 
 if userWord != word:
-    print('=====================\nyou lose !\n=====================')
+    print(f'=====================\nyou lose ! the word was {complete_word}\n=====================')
 else:
     print(f'=====================\nyou win with {life} life !\n=====================')
